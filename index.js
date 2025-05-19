@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { createClient } = require('@supabase/supabase-js');
-const path = require('path');
+
 
 const app = express();
 const PORT = 3000;
@@ -11,16 +11,11 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Initialize Supabase
 const supabaseUrl = 'https://vvfhfukdyjkpqmhoixzd.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2ZmhmdWtkeWprcHFtaG9peHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0NTg1MDksImV4cCI6MjA2MzAzNDUwOX0.LscaU3_X2YkqXACu595TAjA5Shmj2obNkDPFxBSLNU8';  // Replace with your actual Supabase Key
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'weather.html'));
-});
 
 // GET endpoint to get location details based on the city name
 app.get('/api/location', async (req, res) => {
@@ -76,7 +71,7 @@ app.post('/api/favorite-info', async (req, res) => {
 });
 
 // GET endpoint to fetch the saved favorite data
-app.get('/favorite-info', async (req, res) => {
+app.get('/api/favorite-info', async (req, res) => {
   try {
     const { data, error } = await supabase
       .from('favorite')

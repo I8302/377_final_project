@@ -4,7 +4,7 @@ let currentChart = null;
 async function fetchWeather(city) {
     try {
         console.log(`Fetching weather for city: ${city}`);
-        const response = await fetch(`http://localhost:3000/api/location?city=${encodeURIComponent(city)}`);
+        const response = await fetch(`/api/location?city=${encodeURIComponent(city)}`);
         
         // Log the raw response to check if the server is returning data
         const data = await response.json();
@@ -85,7 +85,7 @@ async function addFavorite() {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/favorite-info', {
+        const response = await fetch('/api/favorite-info', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ document.getElementById('add-favorite-btn').addEventListener('click', addFavorit
 // Fetch and display the added favorite data
 async function fetchFavorites() {
     try {
-        const response = await fetch('http://localhost:3000/api/favorite-info');
+        const response = await fetch('/api/favorite-info');
         const favorites = await response.json();
 
         if (favorites.length === 0) {
