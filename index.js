@@ -11,6 +11,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+//add
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Supabase
