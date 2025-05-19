@@ -1,8 +1,9 @@
 // Libraries
 const express = require('express');
 const bodyParser = require('body-parser');
-const { createClient } = require('@supabase/supabase-js');
 const cors = require('cors');
+const { createClient } = require('@supabase/supabase-js');
+
 
 const app = express();
 const PORT = 3000;
@@ -14,6 +15,8 @@ app.use(bodyParser.json());
 const supabaseUrl = 'https://vvfhfukdyjkpqmhoixzd.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2ZmhmdWtkeWprcHFtaG9peHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0NTg1MDksImV4cCI6MjA2MzAzNDUwOX0.LscaU3_X2YkqXACu595TAjA5Shmj2obNkDPFxBSLNU8';  // Replace with your actual Supabase Key
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // GET endpoint to get location details based on the city name
 app.get('/api/location', async (req, res) => {
