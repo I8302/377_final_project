@@ -1,25 +1,6 @@
-//
-// async function fetchWeather(city) {
-//   try {
-//     const response = await fetch(`http://localhost:3000/api/location?city=${encodeURIComponent(city)}`);
-//     const data = await response.json();
-
-//     if (response.ok) {
-//       console.log('Weather/location data:', data);
-//       alert(`City: ${data.city}\nLongitude: ${data.longitude}\nLatitude: ${data.latitude}\nWeather: ${data.weather_status}`);
-//     } else {
-//       console.error('Error:', data.error);
-//     }
-//   } catch (error) {
-//     console.error('Error fetching city weather:', error);
-//   }
-// }
-
-
 let currentChart = null;
 
-// Function to fetch weather details based on city name
-// Function to fetch weather details based on city name
+// Fetch weather information based on city name
 async function fetchWeather(city) {
     try {
         console.log(`Fetching weather for city: ${city}`);
@@ -38,11 +19,9 @@ async function fetchWeather(city) {
                 <p>Weather: ${data.status}</p>
             `;
 
-
             createChart(data);
 
         } else {
-            // Handle the error returned by the API
             document.getElementById('weatherData').innerHTML = `<p>Error: ${data.error}</p>`;
         }
     } catch (error) {
@@ -52,7 +31,7 @@ async function fetchWeather(city) {
 }
 
 
-// Function to create a chart with weather data using Chart.js
+// Create a chart with weather data using Chart.js
 function createChart(data) {
     const ctx = document.getElementById('weatherChart').getContext('2d');
 
@@ -61,7 +40,7 @@ function createChart(data) {
         currentChart.destroy();
     }
 
-    // Create a new chart and store the reference
+    // Create a new chart and store the data
     currentChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -84,9 +63,6 @@ function createChart(data) {
         }
     });
 }
-
-
-// Event listener to fetch weather when button is clicked
 document.getElementById('fetch-weather-btn').addEventListener('click', () => {
     const city = document.getElementById('city-name').value.trim();
     if (city) {
@@ -97,19 +73,16 @@ document.getElementById('fetch-weather-btn').addEventListener('click', () => {
 });
 
 
-
-// Function to handle adding favorites
+// Function to add favorites
 async function addFavorite() {
     const city = document.getElementById('favorite-city').value.trim();
     const country = document.getElementById('favorite-country').value.trim();
     const weatherType = document.getElementById('favorite-weather').value.trim();
 
-    // Check input
     if (!city || !country || !weatherType) {
         alert('Please fill in all fields.');
         return;
     }
-
 
     try {
         const response = await fetch('http://localhost:3000/api/favorite-info', {
@@ -117,11 +90,10 @@ async function addFavorite() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ city, country, weather_type: weatherType })
+            body: JSON.stringify({city, country, weather_type: weatherType})
         });
 
         const result = await response.json();
-        
         if (response.ok) {
             alert('Favorite added successfully!');
             console.log(result.message); 
@@ -134,6 +106,39 @@ async function addFavorite() {
         alert('There was an error adding your favorite.');
     }
 }
-
-// Event listener for the Add Favorite button
 document.getElementById('add-favorite-btn').addEventListener('click', addFavorite);
+
+
+// Fetch and display the added favorite data
+async function fetchFavorites() {
+    try {
+        const response = await fetch('http://localhost:3000/api/favorite-info');
+        const favorites = await response.json();
+
+        if (favorites.length === 0) {
+            document.getElementById('favorites-list').innerHTML = '<p>No favorites to display.</p>';
+            return;
+        }
+
+        // Clear the existing favorites list before adding new ones
+        const favoritesList = document.getElementById('favorites-list');
+        favoritesList.innerHTML = '';
+        const recentFavorites = favorites; 
+
+        recentFavorites.forEach(favorite => {
+            const favoriteItem = document.createElement('div');
+            favoriteItem.classList.add('favorite-item');
+            favoriteItem.innerHTML = `
+                <h3>${favorite.city}, ${favorite.country}</h3>
+                <p>Weather: ${favorite.weather_type}</p>
+
+            `;
+            favoritesList.appendChild(favoriteItem);
+        });
+    } catch (error) {
+        console.error('Error fetching favorites:', error);
+        document.getElementById('favorites-list').innerHTML = '<p>Failed to load favorites.</p>';
+    }
+}
+
+document.getElementById('load-favorites-btn').addEventListener('click', fetchFavorites);
