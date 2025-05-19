@@ -1,0 +1,29 @@
+/* Navigation bar */
+#nav {
+    background-color: #3498db; /* Blue background */
+    text-align: center;
+    padding: 10px 0;
+}
+
+#nav li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#nav li a {
+    color: #f1c40f; /* Yellow text */
+    text-decoration: none;
+    display: block;
+}
+
+#nav li:hover {
+    background-color: #f39c12; /* Darker yellow on hover */
+}
+
+#nav li a:hover {
+    color: #fff; /* White text on hover */
+}
