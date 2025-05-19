@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // GET endpoint to get location details based on the city name
-app.get('/location', async (req, res) => {
+app.get('/api/location', async (req, res) => {
   const { city } = req.query;
 
   if (!city) {
@@ -44,7 +44,7 @@ app.get('/location', async (req, res) => {
 });
 
 // POST endpoint to save favorite info to supabase table
-app.post('/favorite-info', async (req, res) => {
+app.post('/api/favorite-info', async (req, res) => {
   const { city, country, weather_type } = req.body;
 
   // Validate the input
