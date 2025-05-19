@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function fetchWeather(city) {
     try {
         console.log(`Fetching weather for city: ${city}`);
-        const response = await fetch(`http://localhost:3000/api/location?city=${encodeURIComponent(city)}`);
+        const response = await fetch(`/api/location?city=${encodeURIComponent(city)}`);
         
         // Log the raw response to check if the server is returning data
         const data = await response.json();
@@ -87,7 +87,7 @@ function createChart(data) {
         }
     });
 }
-document.getElementById('fetch-weather-btn').addEventListener('click', () => {
+document.getElementById('buttonOne').addEventListener('click', () => {
     const city = document.getElementById('city-name').value.trim();
     if (city) {
         fetchWeather(city);
@@ -109,7 +109,7 @@ async function addFavorite() {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/favorite-info', {
+        const response = await fetch('/api/favorite-info', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -130,13 +130,13 @@ async function addFavorite() {
         alert('There was an error adding your favorite.');
     }
 }
-document.getElementById('add-favorite-btn').addEventListener('click', addFavorite);
+document.getElementById('buttonTwo').addEventListener('click', addFavorite);
 
 
 // Fetch and display the added favorite data
 async function fetchFavorites() {
     try {
-        const response = await fetch('http://localhost:3000/api/favorite-info');
+        const response = await fetch('/api/favorite-info');
         const favorites = await response.json();
 
         if (favorites.length === 0) {

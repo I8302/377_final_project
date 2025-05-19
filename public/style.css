@@ -89,7 +89,7 @@
 
 
 
-/* Styling the form container */
+
 .container {
     max-width: 1000px;
     margin: 40px auto;
@@ -100,14 +100,11 @@
     text-align: center;
 }
 
-/* Title Styling */
 h1 {
     font-size: 2rem;
     color: #3498db;
     margin-bottom: 20px;
 }
-
-/* Search Form */
 #city-input {
     margin-bottom: 30px;
     display: flex;
@@ -246,8 +243,107 @@ h1 {
         flex-direction: column;
     }
 
-    #city-name, #fetch-weather-btn, #add-favorite input, #add-favorite button {
+    #city-name, #buttonOne, #add-favorite input, #add-favorite button {
         width: 100%;
         max-width: 400px;
     }
+}
+
+/* Button 1*/
+.container-eg-btn-5 {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto 10px;
+    padding: .5em;
+    line-height: normal;
+}
+
+.container-eg-btn-5 .button {
+    background: #af40ff;
+    margin: 20px;
+    padding: 18px 22px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    transition: .3s;
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 700;
+}
+
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.container-eg-btn-5 .button-8:hover {
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    text-shadow: 1px 1px #4abbc3;
+}
+.container-eg-btn-5 .button-8 {
+    background-image: repeating-linear-gradient(to right, #fcdd7f 0 20px, #39dcb9 20px 40px);
+    background-size: 400%; 
+    box-shadow: 0px 6px 16px 0px #8d7bb187;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+     text-shadow: unset; 
+     animation: glowing 50s linear infinite; 
+}
+.container-eg-btn-5 .button-8:active{
+    box-shadow: 0px 4px 8px 0px #8d7bb187;
+}
+
+
+
+/* Button 2 */
+.container-eg-btn-3 {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto 10px;
+  padding: .5em;
+  line-height: normal;
+}
+.container-eg-btn-3 .button {
+  color: #fff;
+  margin: 20px;
+  padding: 12px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  transition: .3s;
+  z-index: 1;
+  background: #3aaeff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.container-eg-btn-3 .button-2:hover{
+  background: rgb(148, 251, 255);
+  box-shadow: rgba(212, 0, 0, 0.4) 4px 4px, rgba(255, 0, 102, 0.3) 8px 8px, rgba(255, 0, 102, 0.2) 12px 12px, rgba(255, 0, 102, 0.1) 16px 16px, rgba(255, 0, 102, 0.05) 20px 20px;
 }
