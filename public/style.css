@@ -1,31 +1,253 @@
-/* Navigation bar */
+
 #nav {
-    background-color: #3498db; /* Blue background */
-    text-align: center;
+    background-color: #3498dc;
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 #nav li {
-    display: inline-block;
-    position: relative;
-    text-align: center;
     padding: 15px;
     font-size: 1.1rem;
     font-weight: bold;
+    display: inline-block;
+    text-align: center;
 }
 
 #nav li a {
-    color: #f1c40f; /* Yellow text */
+    color: #f1c20f;
     text-decoration: none;
     display: block;
 }
 
 #nav li:hover {
-    background-color: #f39c12; /* Darker yellow on hover */
+    background-color: #f39c12;
 }
 
 #nav li a:hover {
-    color: #fff; /* White text on hover */
+    color: #fff;
 }
 
 
+
+
+/* Carousel Styles */
+.glide {
+    max-width: 100%;
+    margin: 40px auto; 
+    position: relative;
+    text-align: center; 
+}
+
+.glide__track {
+    overflow: hidden;
+}
+
+.glide__slide {
+    text-align: center;
+}
+
+.glide__slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrow navigation */
+.glide__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.glide__arrow--left {
+    left: 10px;
+}
+
+.glide__arrow--right {
+    right: 10px;
+}
+
+
+
+
+/* Styling the form container */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+/* Search Form */
+#city-input {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#city-name {
+    padding: 10px;
+    font-size: 1.1rem;
+    width: 250px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#city-name:focus {
+    border-color: #f39c12;
+}
+
+#fetch-weather-btn {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#fetch-weather-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Weather Data Section */
+#weatherData {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather Chart */
+#weatherChart {
+    max-width: 100%;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+/* Favorite Location Form */
+#add-favorite {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 40px auto;
+}
+#add-favorite h2 {
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+
+#add-favorite label {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+#add-favorite input {
+    padding: 10px;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#add-favorite input:focus {
+    border-color: #f39c12;
+}
+
+#add-favorite button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-favorite button:hover {
+    background-color: #2980b9;
+}
+
+/* Favorites list styling */
+#favorites-list {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+}
+
+#load-favorites-btn {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 30px auto;
+}
+
+#load-favorites-btn:hover {
+    background-color: #e67e22;
+}
+
+/* Adjustments */
+@media (max-width: 768px) {
+    #city-input {
+        flex-direction: column;
+    }
+
+    #city-name, #fetch-weather-btn, #add-favorite input, #add-favorite button {
+        width: 100%;
+        max-width: 400px;
+    }
+}

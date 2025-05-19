@@ -1,5 +1,29 @@
 let currentChart = null;
 
+  document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.glide')) {
+        new Glide('.glide', {
+            type: 'carousel',
+            startAt: 0,
+            perView: 1,
+            autoplay: 3000, // Auto-slide every 3 seconds
+            hoverpause: true
+        }).mount();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.querySelector('.glide')) {
+    new Glide('.glide', {
+      type: 'carousel',
+      startAt: 0,
+      perView: 1,
+      autoplay: 3000,
+      hoverpause: true
+    }).mount();
+  }
+});
+
 // Fetch weather information based on city name
 async function fetchWeather(city) {
     try {
