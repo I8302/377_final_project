@@ -2,7 +2,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { createClient } = require('@supabase/supabase-js');
-const fetch = require('node-fetch');
 const cors = require('cors');
 
 const app = express();
