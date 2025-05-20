@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function fetchWeather(city) {
     try {
         console.log(`Fetching weather for city: ${city}`);
-        const response = await fetch(`/api/location?city=${encodeURIComponent(city)}`);
+        const response = await fetch(`http://localhost/api/location?city=${encodeURIComponent(city)}`);
         
         // Log the raw response to check if the server is returning data
         const data = await response.json();
