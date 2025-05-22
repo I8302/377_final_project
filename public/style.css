@@ -36,7 +36,13 @@
     color: #fff;
 }
 
-
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    margin-top: 20px;
+}
 
 
 /* Carousel Styles */
@@ -86,10 +92,6 @@
     right: 10px;
 }
 
-
-
-
-
 .container {
     max-width: 1000px;
     margin: 40px auto;
@@ -98,6 +100,15 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.containerTwo {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -212,7 +223,7 @@ h1 {
     background-color: #2980b9;
 }
 
-/* Favorites list styling */
+/* Favorites List */
 #favorites-list {
     margin-top: 30px;
     padding: 15px;
@@ -237,7 +248,6 @@ h1 {
     background-color: #e67e22;
 }
 
-/* Adjustments */
 @media (max-width: 768px) {
     #city-input {
         flex-direction: column;
@@ -249,7 +259,7 @@ h1 {
     }
 }
 
-/* Button 1*/
+/* Button 1 - Get Weather*/
 .container-eg-btn-5 {
     font-family: sans-serif;
     display: flex;
@@ -279,7 +289,6 @@ h1 {
     user-select: none;
     font-weight: 700;
 }
-
 
 @keyframes glowing {
     0% {
@@ -317,7 +326,7 @@ h1 {
 
 
 
-/* Button 2 */
+/* Button 2 - Add Favorite*/
 .container-eg-btn-3 {
   font-family: sans-serif;
   display: flex;

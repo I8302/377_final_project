@@ -1,6 +1,18 @@
 let currentChart = null;
 
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.glide')) {
+        new Glide('.glide', {
+            type: 'carousel',
+            startAt: 0,
+            perView: 1,
+            autoplay: 3000, 
+            hoverpause: true
+        }).mount();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.glide')) {
         new Glide('.glide', {
             type: 'carousel',
@@ -10,18 +22,6 @@ let currentChart = null;
             hoverpause: true
         }).mount();
     }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  if (document.querySelector('.glide')) {
-    new Glide('.glide', {
-      type: 'carousel',
-      startAt: 0,
-      perView: 1,
-      autoplay: 3000,
-      hoverpause: true
-    }).mount();
-  }
 });
 
 // Fetch weather information based on city name
@@ -42,9 +42,9 @@ async function fetchWeather(city) {
                 <p>Latitude: ${data.latitude}</p>
                 <p>Weather: ${data.status}</p>
             `;
-
+            
             createChart(data);
-
+            
         } else {
             document.getElementById('weatherData').innerHTML = `<p>Error: ${data.error}</p>`;
         }
@@ -58,12 +58,12 @@ async function fetchWeather(city) {
 // Create a chart with weather data using Chart.js
 function createChart(data) {
     const ctx = document.getElementById('weatherChart').getContext('2d');
-
+    
     // Destroy previous chart if it exists
     if (currentChart) {
         currentChart.destroy();
     }
-
+    
     // Create a new chart and store the data
     currentChart = new Chart(ctx, {
         type: 'bar',
@@ -102,12 +102,12 @@ async function addFavorite() {
     const city = document.getElementById('favorite-city').value.trim();
     const country = document.getElementById('favorite-country').value.trim();
     const weatherType = document.getElementById('favorite-weather').value.trim();
-
+    
     if (!city || !country || !weatherType) {
         alert('Please fill in all fields.');
         return;
     }
-
+    
     try {
         const response = await fetch('/api/favorite-info', {
             method: 'POST',
@@ -116,7 +116,7 @@ async function addFavorite() {
             },
             body: JSON.stringify({city, country, weather_type: weatherType})
         });
-
+        
         const result = await response.json();
         if (response.ok) {
             alert('Favorite added successfully!');
@@ -138,24 +138,24 @@ async function fetchFavorites() {
     try {
         const response = await fetch('/api/favorite-info');
         const favorites = await response.json();
-
+        
         if (favorites.length === 0) {
             document.getElementById('favorites-list').innerHTML = '<p>No favorites to display.</p>';
             return;
         }
-
+        
         // Clear the existing favorites list before adding new ones
         const favoritesList = document.getElementById('favorites-list');
         favoritesList.innerHTML = '';
         const recentFavorites = favorites; 
-
+        
         recentFavorites.forEach(favorite => {
             const favoriteItem = document.createElement('div');
             favoriteItem.classList.add('favorite-item');
             favoriteItem.innerHTML = `
                 <h3>${favorite.city}, ${favorite.country}</h3>
                 <p>Weather: ${favorite.weather_type}</p>
-
+            
             `;
             favoritesList.appendChild(favoriteItem);
         });

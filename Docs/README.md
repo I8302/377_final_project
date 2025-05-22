@@ -2,7 +2,7 @@
 
 Simple Weather is a weather forecast application that provides users with weather information for a city of their choices. With Simple Weather, users are able to input the city location of their choice, and they will be abou to see the current weather status, as well as the longitude and latitude. Users are able to visualize the longitude and latitude of the city with charts. Users can also save their favorite city, country, and weather type, as well as access a list of their saved favorites later. Simple Weather is built mainly with HTML, CSS, and Javascript.
 
-This application designed to be compatible with modern web browsers and is supported mainly on desktop browsers. However, this application should work across mobile browsers.
+This application designed to be compatible with modern web browsers and is supported mainly on desktop browsers. However, this application may also work across mobile browsers.
 
 The Developer Manual can be found below.
 [CLICK HERE FOR DEVELOPER MANUAL](#developer-manual)
@@ -18,7 +18,7 @@ This Developer Manual section is a guide for future developers to set up and wor
 
 1. First, should download Node Version Manager (NVM) following these steps: "https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/"
 
-2. Then also download: a code editor (such as VSCode), Insomnia (to test the API), Node.js, Supabase (database management), Github (recommended), and Git.
+2. Then also download: a code editor (such as VSCode), Insomnia (to test the API), Node.js, React.js, Supabase (database management), Github (recommended), and Git.
 
 3. Next, download each file under the project directory to their device. However, it may be helpful to clone the project repository from Github to edit the files.
 
@@ -54,7 +54,7 @@ This GET api endpoint returns the list of previiously saved favorites that the u
 
 There are no known bugs.
 
-Currently, the location table in the Supabase database is limited. The API endpoint fetches data from the table, but the table does not yet contain all city locations worldwide. As a result, usres may experience limitations when searching for cities that are not included in the database. 
+Currently, the location table in the Supabase database is limited. The API endpoint fetches data from the table, but the table does not yet contain all city locations worldwide. As a result, users may experience limitations when searching for cities that are not included in the database. 
 
 This is a list of currently available cities with provided data that users may search: London, Greece, Budapest, Turkey, Nashville.
 

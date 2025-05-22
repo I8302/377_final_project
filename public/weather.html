@@ -1,112 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Data</title>
-    <link rel="stylesheet" href="style.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Glide.js CSS via CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
-
-    <!-- Glide.js JavaScript via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Data</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Glide.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+  
+  <!-- Glide.js JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav id = "nav">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="weather.html">Weather</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-
-        <div class="glide">
-  <div data-glide-el="track" class="glide__track">
-    <ul class="glide__slides">
-      <li class="glide__slide"><img src="https://www.smartertravel.com/wp-content/uploads/2017/03/shutterstock_569323720-1024x683.jpg" width="500" height="400"></li>
-      <li class="glide__slide"><img src="https://th.bing.com/th/id/R.2475a6c67508d5e03ae714afea2177eb?rik=mwQ7wLFZwemimg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f11%2fImages-Earth-From-Space.jpg&ehk=juNYPioPfAKgx7%2ba32CXjleLZvpMCaA%2bw72m0IeIuJo%3d&risl=&pid=ImgRaw&r=0"width="500" height="400"></li>
-      <li class="glide__slide"><img src="https://wyattdowling.ca/get/files/image/galleries/Snowman_Blog_Image_1200x630.jpg" width="500" height="400"></li>
-    </ul>
-  </div>
-</div>
-
-
-
-        <section class="container">
-            <h1>Weather Forecast</h1>
-            
-            <div id="city-input">
-                <label for="city-name">Enter City Name:</label>
-                <p>For Example: London, Budapest, Greece, Nashville, or Turkey</p>
-                <input type="text" id="city-name" placeholder="Enter city">
-               
-                <div class="container-eg-btn-5">
-                    <a id="buttonOne" class="button button-8">Get Weather!</a>
-                </div>
-            </div>
-
-
-            <div id="weatherData">
-                <p>Loading weather data...</p>
-            </div>
-            <canvas id="weatherChart"></canvas>
-        </section>
-        
-
-<div id="add-favorite">
-    <h2>Add Favorite Location</h2>
-    <label for="favorite-city">City:</label>
-    <input type="text" id="favorite-city" placeholder="Enter city">
+  <header>
+    <nav id = "nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="weather.html">Weather</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
     
-    <label for="favorite-country">Country:</label>
-    <input type="text" id="favorite-country" placeholder="Enter country">
-    
-    <label for="favorite-weather">Weather Type:</label>
-    <p>Example: Sunny, Snowy, Windy, etc!</p>
-    <input type="text" id="favorite-weather" placeholder="Enter weather type">
-    
-    <div class="container-eg-btn-3">
-        <a id ="buttonTwo" class="button button-2">Add Favorite!</a>      
+    <div class="glide">
+      <div data-glide-el="track" class="glide__track">
+        <ul class="glide__slides">
+          <li class="glide__slide"><img src="https://www.smartertravel.com/wp-content/uploads/2017/03/shutterstock_569323720-1024x683.jpg" width="500" height="400"></li>
+          <li class="glide__slide"><img src="https://th.bing.com/th/id/R.2475a6c67508d5e03ae714afea2177eb?rik=mwQ7wLFZwemimg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f11%2fImages-Earth-From-Space.jpg&ehk=juNYPioPfAKgx7%2ba32CXjleLZvpMCaA%2bw72m0IeIuJo%3d&risl=&pid=ImgRaw&r=0"width="500" height="400"></li>
+          <li class="glide__slide"><img src="https://wyattdowling.ca/get/files/image/galleries/Snowman_Blog_Image_1200x630.jpg" width="500" height="400"></li>
+        </ul>
+      </div>
     </div>
-</div>
-
-
-<button id="load-favorites-btn">Show My Favorites</button>
-
-
-<div id="favorites-list"></div>
-
-<div class="glide">
-  <div data-glide-el="track" class="glide__track">
-    <ul class="glide__slides">
-      <li class="glide__slide">
-        <img src="https://www.smartertravel.com/wp-content/uploads/2017/03/shutterstock_569323720-1024x683.jpg" alt="Slide 1">
-      </li>
-      <li class="glide__slide">
-        <img src="https://th.bing.com/th/id/R.2475a6c67508d5e03ae714afea2177eb?rik=mwQ7wLFZwemimg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f11%2fImages-Earth-From-Space.jpg&ehk=juNYPioPfAKgx7%2ba32CXjleLZvpMCaA%2bw72m0IeIuJo%3d&risl=&pid=ImgRaw&r=0" alt="Slide 2">
-      </li>
     
-    </ul>
-  </div>
-
-  <!-- Arrow Navigation -->
-  <div class="glide__arrows" data-glide-el="controls">
-    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
-    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
-  </div>
-</div>
-
-    </main>
-    <footer>
-        <p>&copy; 2025 Weather Forecast</p>
-    </footer>
-
-    <script src="javascript.js"></script>
+    
+    
+    <section class="container">
+      <h1>Weather Forecast</h1>
+      
+      <div id="city-input">
+        <label for="city-name">Enter City Name:</label>
+        <p>For Example: London, Budapest, Greece, Nashville, or Turkey</p>
+        <input type="text" id="city-name" placeholder="Enter city">
+        
+        <div class="container-eg-btn-5">
+          <a id="buttonOne" class="button button-8">Get Weather!</a>
+        </div>
+      </div>
+      
+      
+      <div id="weatherData">
+        <p>Loading weather data...</p>
+      </div>
+      <canvas id="weatherChart"></canvas>
+    </section>
+    
+    
+    <div id="add-favorite">
+      <h2>Add Favorite Location</h2>
+      <label for="favorite-city">City:</label>
+      <input type="text" id="favorite-city" placeholder="Enter city">
+      
+      <label for="favorite-country">Country:</label>
+      <input type="text" id="favorite-country" placeholder="Enter country">
+      
+      <label for="favorite-weather">Weather Type:</label>
+      <p>Example: Sunny, Snowy, Windy, etc!</p>
+      <input type="text" id="favorite-weather" placeholder="Enter weather type">
+      
+      <div class="container-eg-btn-3">
+        <a id ="buttonTwo" class="button button-2">Add Favorite!</a>      
+      </div>
+    </div>
+    
+    
+    <button id="load-favorites-btn">Show My Favorites</button>
+    
+    
+    <div id="favorites-list"></div>
+    
+    <div class="glide">
+      <div data-glide-el="track" class="glide__track">
+        <ul class="glide__slides">
+          <li class="glide__slide"><img src="https://www.smartertravel.com/wp-content/uploads/2017/03/shutterstock_569323720-1024x683.jpg" width="500" height="400"></li>
+          <li class="glide__slide"><img src="https://th.bing.com/th/id/R.2475a6c67508d5e03ae714afea2177eb?rik=mwQ7wLFZwemimg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f11%2fImages-Earth-From-Space.jpg&ehk=juNYPioPfAKgx7%2ba32CXjleLZvpMCaA%2bw72m0IeIuJo%3d&risl=&pid=ImgRaw&r=0"width="500" height="400"></li>
+          <li class="glide__slide"><img src="https://wyattdowling.ca/get/files/image/galleries/Snowman_Blog_Image_1200x630.jpg" width="500" height="400"></li>
+        </ul>
+      </div>
+    </div>
+    
+  </main>
+  <footer>
+    <p>&copy; 2025 Simple Weather</p>
+  </footer>
+  
+  <script src="javascript.js"></script>
 </body>
 </html>
