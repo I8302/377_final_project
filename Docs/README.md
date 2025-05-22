@@ -4,6 +4,8 @@ Simple Weather is a weather forecast application that provides users with weathe
 
 This application designed to be compatible with modern web browsers and is supported mainly on desktop browsers. However, this application may also work across mobile browsers.
 
+Vercel Link: "https://finalproject-377.vercel.app/"
+
 The Developer Manual can be found below.
 [CLICK HERE FOR DEVELOPER MANUAL](#developer-manual)
 
